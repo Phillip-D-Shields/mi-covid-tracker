@@ -1,0 +1,1 @@
+{"ast":null,"code":"function Index({\n  data\n}) {\n  return;\n}","map":{"version":3,"sources":["/home/phillip/code/nextjs/mi-covid-tracker/pages/index.js"],"names":["Index","data"],"mappings":"AAAA,SAASA,KAAT,CAAgB;AAAEC,EAAAA;AAAF,CAAhB,EAA0B;AACtB;AACH","sourcesContent":["function Index ({ data }) {\n    return \n}"]},"metadata":{},"sourceType":"script"}
