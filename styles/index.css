@@ -8,5 +8,5 @@
 @tailwind utilities;
 
 body {
-  @apply bg-blue-600 p-6 w-screen h-screen;
+  @apply bg-blue-800 p-6 w-screen h-screen;
 }
