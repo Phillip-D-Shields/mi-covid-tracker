@@ -8,7 +8,7 @@ body {
 }
 
 .card {
-  @apply flex flex-col bg-gray-900 p-6 w-full;
+  @apply flex flex-col bg-gray-900 p-6 w-full duration-300 rounded-lg;
 }
 
 .mi-card-header {
@@ -20,7 +20,7 @@ body {
 }
 
 .mi-card-link {
-  @apply block bg-gray-500 my-4 p-2 rounded mx-4 text-center text-3xl text-blue-800;
+  @apply bg-gray-500 my-4 p-2 rounded mx-4 text-center text-3xl text-blue-800 flex justify-between items-center;
 }
 
 .us-card-header {
@@ -28,7 +28,7 @@ body {
 }
 
 .us-card-link {
-  @apply block bg-gray-500 my-4 p-2 rounded mx-4 text-center text-3xl text-red-800;
+  @apply bg-gray-500 my-4 p-2 rounded mx-4 text-center text-3xl text-red-800 flex justify-between items-center;
 }
 
 .int-card-header {
@@ -36,7 +36,7 @@ body {
 }
 
 .int-card-link {
-  @apply block bg-gray-700 py-1 px-2 rounded-full m-2 text-center text-2xl text-gray-300;
+  @apply bg-gray-700 py-2 px-4 rounded-full m-2 text-center text-xl text-gray-300 flex justify-between items-center;
 }
 
 .src-card-header {
@@ -44,5 +44,5 @@ body {
 }
 
 .src-card-link {
-  @apply block bg-green-700 m-2 py-1 px-2 rounded-full text-center text-xl text-gray-300;
+  @apply bg-green-700 m-2 py-2 px-4 rounded-full text-center text-xl text-gray-300 flex justify-between items-center;
 }

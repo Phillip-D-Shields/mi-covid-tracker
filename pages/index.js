@@ -68,20 +68,50 @@ function Index(props) {
             target="_blank"
             rel="noreferrer noopener"
           >
-            Michigan state website
+            Michigan.Gov
+            <figure className="inline-block w-8 ">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                />
+              </svg>
+            </figure>
           </a>
           <a
             className="mi-card-link hover:bg-blue-800 hover:text-gray-400 duration-300"
-            href={props.miInfo.twitter}
+            href="https://twitter.com/michiganhhs"
             target="_blank"
             rel="noreferrer noopener"
           >
-            Michigan state twitter
+            {props.miInfo.twitter}
+            <figure className="inline-block w-8 ">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                />
+              </svg>
+            </figure>
           </a>
         </section>
 
         {/* us data card */}
-        <section className="card md:w-6/12 border-l-4 border-red-700 hover:bg-black">
+        <section className="card md:w-6/12 border-l-4 border-red-700 hover:bg-black justify-around">
           <h1 className="us-card-header">US Data</h1>
 
           <h3 className="card-title">
@@ -144,7 +174,22 @@ function Index(props) {
             target="_blank"
             rel="noreferrer noopener"
           >
-            CDC Twitter
+            @CDCgov
+            <figure className="inline-block w-8 ">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                />
+              </svg>
+            </figure>
           </a>
         </section>
         <section className="card md:w-8/12 border-l-4 border-gray-300 hover:bg-black">
@@ -156,6 +201,21 @@ function Index(props) {
             rel="noreferrer noopener"
           >
             WHO COVID-19 Dashboard
+            <figure className="inline-block w-8 ">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                />
+              </svg>
+            </figure>
           </a>
           <a
             className="int-card-link hover:bg-gray-300 hover:text-gray-900 duration-300"
@@ -164,6 +224,21 @@ function Index(props) {
             rel="noreferrer noopener"
           >
             WHO COVID-19 Public Advice
+            <figure className="inline-block w-8 ">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                />
+              </svg>
+            </figure>
           </a>
           <a
             className="int-card-link hover:bg-gray-300 hover:text-gray-900 duration-300"
@@ -172,6 +247,21 @@ function Index(props) {
             rel="noreferrer noopener"
           >
             Pandemics History Infographic
+            <figure className="inline-block w-8 ">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                />
+              </svg>
+            </figure>
           </a>
           <a
             className="int-card-link hover:bg-gray-300 hover:text-gray-900 duration-300"
@@ -180,6 +270,21 @@ function Index(props) {
             rel="noreferrer noopener"
           >
             Our World in Data: Coronavirus
+            <figure className="inline-block w-8 ">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                />
+              </svg>
+            </figure>
           </a>
         </section>
         <section className="card md:w-4/12 border-l-4 border-green-700 hover:bg-black">
@@ -191,6 +296,21 @@ function Index(props) {
             rel="noreferrer noopener"
           >
             Data Source
+            <figure className="inline-block w-8 ">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                />
+              </svg>
+            </figure>
           </a>
           <a
             className="src-card-link hover:bg-gray-300 hover:text-gray-900 duration-300"
@@ -199,6 +319,21 @@ function Index(props) {
             rel="noreferrer noopener"
           >
             Data Source Api
+            <figure className="inline-block w-8 ">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                />
+              </svg>
+            </figure>
           </a>
           <a
             className="src-card-link hover:bg-gray-300 hover:text-gray-900 duration-300"
@@ -207,9 +342,27 @@ function Index(props) {
             rel="noreferrer noopener"
           >
             Data Source Api
+            <figure className="inline-block w-8 ">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                />
+              </svg>
+            </figure>
           </a>
         </section>
       </main>
+      <footer>
+      <h5 className="font-semibold text-blue-200 my-6">made by <a href="https://www.linkedin.com/in/phillip-d-shields" className="text-blue-400">phill</a> </h5>
+      </footer>
     </>
   );
 }
