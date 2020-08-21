@@ -1,4 +1,18 @@
 import getData from "./getData";
+// import { makeStyles } from '@material-ui/core/styles';
+import SimpleCard from "../components/simpleCard";
+import FolderList from "../components/FolderList";
+import MainLink from "../components/MainLink";
+import Box from '@material-ui/core/Box';
+import TwitterIcon from '@material-ui/icons/Twitter';
+import OpenInBrowserIcon from '@material-ui/icons/OpenInBrowser';
+
+import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
+import amber from "@material-ui/core/colors/amber";
+import green from "@material-ui/core/colors/green";
+import { render } from "react-dom";
+
+
 
 export async function getStaticProps(context) {
   const miStats = await getData(
@@ -21,349 +35,46 @@ export async function getStaticProps(context) {
 }
 
 function Index(props) {
+  const theme = createMuiTheme({
+    palette: {
+      primary: {
+        main: amber[500],
+      },
+      secondary: {
+        main: green[500],
+      },
+    },
+  });
+
   return (
-    <>
-      <main className="w-full h-full m-auto flex flex-wrap justify-around">
-        {/* Michigan Data Card */}
-        <section className="card md:w-6/12 flex flex-column justify-around border-l-4 border-blue-700 hover:bg-black">
-          <h1 className="mi-card-header"> Michigan Data</h1>
-
-          <h3 className="card-title">
-            Currently hospitalized:{" "}
-            <span className="text-orange-400 pl-2">
-              {" "}
-              {props.miStats.hospitalizedCurrently}{" "}
-            </span>
-          </h3>
-          <h3 className="card-title">
-            Currently in ICU:{" "}
-            <span className="text-indigo-400 pl-2">
-              {props.miStats.inIcuCurrently}
-            </span>
-          </h3>
-          <h3 className="card-title">
-            Deaths:{" "}
-            <span className=" text-purple-400 pl-2">{props.miStats.death}</span>
-          </h3>
-          <h3 className="card-title">
-            Recovered:{" "}
-            <span className="text-green-400 pl-2">
-              {props.miStats.recovered}
-            </span>
-          </h3>
-          <h3 className="card-title">
-            Data last updated: {props.miStats.date}{" "}
-            <span className="text-gray-700 pl-2"> YYYYMMDD </span>
-          </h3>
-          <h3 className="card-title">
-            Data Quality Grade: {props.miStats.dataQualityGrade}
-          </h3>
-          <h3 className="card-title"> </h3>
-
-          <h2 className="mi-card-header justify-end">State Links</h2>
-
-          <a
-            className="mi-card-link hover:bg-blue-800 hover:text-gray-400 duration-300"
+    <ThemeProvider theme={theme}>
+      <Box display="flex">
+        <SimpleCard header="Michigan Data" linkStyles="">
+          <FolderList
+            primary00={props.miStats.hospitalizedCurrently}
+            primary01={props.miStats.inIcuCurrently}
+            primary02={props.miStats.death}
+            primary03={props.miStats.recovered}
+            primary04={props.miStats.date}
+            primary05={props.miStats.dataQualityGrade}
+          ></FolderList>
+         
+          <MainLink
+            btnText="Michigan .Gov"
             href={props.miInfo.covid19Site}
-            target="_blank"
-            rel="noreferrer noopener"
-          >
-            Michigan.Gov
-            <figure className="inline-block w-8 ">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-                />
-              </svg>
-            </figure>
-          </a>
-          <a
-            className="mi-card-link hover:bg-blue-800 hover:text-gray-400 duration-300"
+            btnColor="secondary"
+            endIcon={<OpenInBrowserIcon />}
+          />
+          <MainLink
+            btnText='Michigan HHS'
             href="https://twitter.com/michiganhhs"
-            target="_blank"
-            rel="noreferrer noopener"
-          >
-            {props.miInfo.twitter}
-            <figure className="inline-block w-8 ">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-                />
-              </svg>
-            </figure>
-          </a>
-        </section>
-
-        {/* us data card */}
-        <section className="card md:w-6/12 border-l-4 border-red-700 hover:bg-black justify-around">
-          <h1 className="us-card-header">US Data</h1>
-
-          <h3 className="card-title">
-            Currently hospitalized:{" "}
-            <span className="text-orange-400 pl-2">
-              {props.usStats[0].hospitalizedCurrently}{" "}
-            </span>
-          </h3>
-          <h3 className="card-title">
-            Currently in ICU:{" "}
-            <span className="text-indigo-400 pl-2">
-              {props.usStats[0].inIcuCurrently}
-            </span>
-          </h3>
-          <h3 className="card-title">
-            Deaths:{" "}
-            <span className=" text-purple-400 pl-2">
-              {props.usStats[0].death}
-            </span>
-          </h3>
-          <h3 className="card-title">
-            Recovered:{" "}
-            <span className="text-green-400 pl-2">
-              {props.usStats[0].recovered}
-            </span>
-          </h3>
-          <h3 className="card-title">
-            Data last updated: {props.usStats[0].date}{" "}
-            <span className="text-gray-700 pl-2"> YYYYMMDD </span>
-          </h3>
-          <h3 className="text-gray-900 my-1 pl-4">nothing to see here, yet!</h3>
-
-          <h2 className="us-card-header">US Links</h2>
-          <a
-            className="us-card-link hover:bg-red-800 hover:text-gray-400 duration-300"
-            href="https://www.cdc.gov/coronavirus/2019-ncov/index.html"
-            target="_blank"
-            rel="noreferrer noopener"
-          >
-            CDC
-            <figure className="inline-block w-8 ">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-                />
-              </svg>
-            </figure>
-          </a>
-          <a
-            className="us-card-link hover:bg-red-800 hover:text-gray-400 duration-300"
-            href="https://twitter.com/CDCgov"
-            target="_blank"
-            rel="noreferrer noopener"
-          >
-            @CDCgov
-            <figure className="inline-block w-8 ">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-                />
-              </svg>
-            </figure>
-          </a>
-        </section>
-        <section className="card md:w-8/12 border-l-4 border-gray-300 hover:bg-black">
-          <h2 className="int-card-header ">INT Links</h2>
-          <a
-            className="int-card-link hover:bg-gray-300 hover:text-gray-900 duration-300"
-            href="https://covid19.who.int/"
-            target="_blank"
-            rel="noreferrer noopener"
-          >
-            WHO COVID-19 Dashboard
-            <figure className="inline-block w-8 ">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-                />
-              </svg>
-            </figure>
-          </a>
-          <a
-            className="int-card-link hover:bg-gray-300 hover:text-gray-900 duration-300"
-            href="https://www.who.int/emergencies/diseases/novel-coronavirus-2019/advice-for-public"
-            target="_blank"
-            rel="noreferrer noopener"
-          >
-            WHO COVID-19 Public Advice
-            <figure className="inline-block w-8 ">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-                />
-              </svg>
-            </figure>
-          </a>
-          <a
-            className="int-card-link hover:bg-gray-300 hover:text-gray-900 duration-300"
-            href="https://2oqz471sa19h3vbwa53m33yj-wpengine.netdna-ssl.com/wp-content/uploads/2020/03/DeadliestPandemics-Infographic-78-17August.jpg"
-            target="_blank"
-            rel="noreferrer noopener"
-          >
-            Pandemics History Infographic
-            <figure className="inline-block w-8 ">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-                />
-              </svg>
-            </figure>
-          </a>
-          <a
-            className="int-card-link hover:bg-gray-300 hover:text-gray-900 duration-300"
-            href="https://ourworldindata.org/coronavirus"
-            target="_blank"
-            rel="noreferrer noopener"
-          >
-            Our World in Data: Coronavirus
-            <figure className="inline-block w-8 ">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-                />
-              </svg>
-            </figure>
-          </a>
-        </section>
-        <section className="card md:w-4/12 border-l-4 border-green-700 hover:bg-black">
-          <h2 className="src-card-header ">Other Links</h2>
-          <a
-            className="src-card-link hover:bg-gray-300 hover:text-gray-900 duration-300"
-            href="https://www.who.int/emergencies/diseases/novel-coronavirus-2019/advice-for-public"
-            target="_blank"
-            rel="noreferrer noopener"
-          >
-            Data Source
-            <figure className="inline-block w-8 ">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-                />
-              </svg>
-            </figure>
-          </a>
-          <a
-            className="src-card-link hover:bg-gray-300 hover:text-gray-900 duration-300"
-            href="https://www.who.int/emergencies/diseases/novel-coronavirus-2019/advice-for-public"
-            target="_blank"
-            rel="noreferrer noopener"
-          >
-            Data Source Api
-            <figure className="inline-block w-8 ">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-                />
-              </svg>
-            </figure>
-          </a>
-          <a
-            className="src-card-link hover:bg-gray-300 hover:text-gray-900 duration-300"
-            href="https://www.who.int/emergencies/diseases/novel-coronavirus-2019/advice-for-public"
-            target="_blank"
-            rel="noreferrer noopener"
-          >
-            Data Source Api
-            <figure className="inline-block w-8 ">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-                />
-              </svg>
-            </figure>
-          </a>
-        </section>
-      </main>
-      <footer>
-      <h5 className="font-semibold text-blue-200 my-6">made by <a href="https://www.linkedin.com/in/phillip-d-shields" className="text-blue-400">phill</a> </h5>
-      </footer>
-    </>
+            btnColor="secondary"
+            endIcon={<TwitterIcon />}
+          />
+          
+        </SimpleCard>
+      </Box>
+    </ThemeProvider>
   );
 }
 
